@@ -1,0 +1,9 @@
+[tool.poetry]
+name = "playground/python"
+version = "0.0.0"
+description = "A quick way to start coding with python with virtualenv"
+authors = ["ryuhcii@gmail.com"]
+
+[tool.poetry.dependencies]
+python = "~3.10"  # change the version to desired one
+alembic = "~1.8"  # remove or add pip packages of your choice

@@ -32,3 +32,5 @@ make shell
 ```
 
 More commands can be found at [Makefile](./Makefile)
+
+_Learn about poetry at https://python-poetry.org/_

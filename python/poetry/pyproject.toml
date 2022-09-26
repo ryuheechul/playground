@@ -1,9 +1,16 @@
 [tool.poetry]
-name = "playground/python"
+name = "playground"
 version = "0.0.0"
 description = "A quick way to start coding with python with virtualenv"
-authors = ["ryuhcii@gmail.com"]
+authors = ["Heechul Ryu <ryuhcii@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "~3.10"  # change the version to desired one
-alembic = "~1.8"  # remove or add pip packages of your choice
+python = "~3.10"    # change the version to desired one
+requests = "~2.28"  # remove or add pip packages of your choice
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

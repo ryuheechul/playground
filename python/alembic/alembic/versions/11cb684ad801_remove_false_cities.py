@@ -20,13 +20,7 @@ countries_to_remove = [
     'No Country',
 ]
 
-countries_to_remove_for_sql = reduce(
-    lambda left, right: f'{left}, {right}',
-    map(
-        lambda country: f"'{country}'",
-        countries_to_remove
-    )
-)
+countries_to_remove_for_sql = ', '.join(f"'{country}'" for country in countries_to_remove)
 
 def upgrade():
     conn = op.get_bind()
@@ -35,13 +29,10 @@ def upgrade():
     ).fetchall()
 
 
-    ids = list(map(lambda tpl: tpl[0], result_as_tuples))
+    ids = [tpl[0] for tpl in result_as_tuples]
 
     if len(ids):
-        ids_for_sql = reduce(
-            lambda left, right: f'{left}, {right}',
-            ids,
-        )
+        ids_for_sql = ', '.join(f'{id}' for id in ids)
 
         op.execute(
             f'DELETE FROM cities WHERE country_id IN ({ids_for_sql});'
